@@ -29,6 +29,9 @@ namespace CIT365_MathQuiz
         public Form1()
         {
             InitializeComponent();
+
+            // Today's date applied to a label
+            dateLabel.Text = DateTime.Now.ToString("d MMMM yyyy");
         }
 
         private void answer_Enter(object sender, EventArgs e)
@@ -43,13 +46,13 @@ namespace CIT365_MathQuiz
             }
         }
 
+        // An event method that should make sounds but doesn't...
         private void Answer_Correct_Alert(object sender, EventArgs e)
         {
             NumericUpDown answerBox = sender as NumericUpDown;
 
             if (answerBox != null)
             {
-                Console.WriteLine(answerBox.Name);
                 switch (answerBox.Name)
                 {
                     case "sum":
