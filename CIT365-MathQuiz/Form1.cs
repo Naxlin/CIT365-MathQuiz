@@ -17,6 +17,12 @@ namespace CIT365_MathQuiz
         Random randomizer = new Random();
         // Addition random numbers:
         int addend1, addend2;
+        // Subtraction random numbers:
+        int minuend, subtrahend;
+        // Multiplication random numbers:
+        int multiplicand, multiplier;
+        // Division random numbers:
+        int dividend, divisor;
         // Countdown:
         int timeLeft;
 
@@ -65,6 +71,9 @@ namespace CIT365_MathQuiz
                 timeLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
                 sum.Value = addend1 + addend2;
+                difference.Value = minuend - subtrahend;
+                product.Value = multiplicand * multiplier;
+                quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
             }
         }
@@ -83,6 +92,37 @@ namespace CIT365_MathQuiz
             // Setting Sum default:
             sum.Value = 0;
 
+            // Subtraction problem:
+            // Randomizing numbers:
+            minuend = randomizer.Next(1, 101);
+            subtrahend = randomizer.Next(1, minuend);
+            // Updating Labels:
+            minusLeftLabel.Text = minuend.ToString();
+            minusRightLabel.Text = subtrahend.ToString();
+            // Setting default:
+            difference.Value = 0;
+
+            // Multiplication problem:
+            // Randomizing numbers:
+            multiplicand = randomizer.Next(2, 11);
+            multiplier = randomizer.Next(2, 11);
+            // Labeling:
+            timesLeftLabel.Text = multiplicand.ToString();
+            timesRightLabel.Text = multiplier.ToString();
+            // Default:
+            product.Value = 0;
+
+            // Division problem:
+            // Randomizing:
+            divisor = randomizer.Next(2, 11);
+            int tempQuotient = randomizer.Next(2, 11);
+            dividend = divisor * tempQuotient;
+            // Labeling:
+            dividedLeftLabel.Text = dividend.ToString();
+            dividedRightLabel.Text = divisor.ToString();
+            // Default:
+            quotient.Value = 0;
+
             // Timer:
             // Time limit:
             timeLeft = 30;
@@ -96,7 +136,10 @@ namespace CIT365_MathQuiz
         // returns true or false depending on the comparison
         private bool CheckTheAnswer()
         {
-            if (addend1 + addend2 == sum.Value)
+            if ((addend1 + addend2 == sum.Value) &&
+                (minuend - subtrahend == difference.Value) &&
+                (multiplicand * multiplier == product.Value) &&
+                (dividend / divisor == quotient.Value))
                 return true;
             else
                 return false;
