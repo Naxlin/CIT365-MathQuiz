@@ -12,10 +12,13 @@ namespace CIT365_MathQuiz
 {
     public partial class Form1 : Form
     {
+        // Variables:
         // Creating random number generator:
         Random randomizer = new Random();
         // Addition random numbers:
         int addend1, addend2;
+        // Countdown:
+        int timeLeft;
 
         public Form1()
         {
@@ -43,6 +46,25 @@ namespace CIT365_MathQuiz
             startButton.Enabled = false;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (timeLeft > 0)
+            {
+                // Update timer:
+                timeLeft = timeLeft - 1;
+                timeLabel.Text = timeLeft + " seconds";
+            }
+            else
+            {
+                // Time ran out!:
+                timer1.Stop();
+                timeLabel.Text = "Time's up!";
+                MessageBox.Show("You didn't finish in time.", "Sorry!");
+                sum.Value = addend1 + addend2;
+                startButton.Enabled = true;
+            }
+        }
+
         // Will start the game when the start quiz button is pressed
         // this includes the creation of random numbers and the timer
         public void StartTheQuiz()
@@ -57,6 +79,13 @@ namespace CIT365_MathQuiz
             // Setting Sum default:
             sum.Value = 0;
 
+            // Timer:
+            // Time limit:
+            timeLeft = 30;
+            // Setting time label:
+            timeLabel.Text = "30 seconds";
+            // Start timer:
+            timer1.Start();
         }
     }
 }
