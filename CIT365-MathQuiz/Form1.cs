@@ -25,19 +25,16 @@ namespace CIT365_MathQuiz
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void answer_Enter(object sender, EventArgs e)
         {
+            // Selects all input text on 'entering' a numericUpDown menu
+            NumericUpDown answerBox = sender as NumericUpDown;
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void quotient_ValueChanged(object sender, EventArgs e)
-        {
-
+            if (answerBox != null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0, lengthOfAnswer);
+            }
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -48,10 +45,17 @@ namespace CIT365_MathQuiz
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (CheckTheAnswer())
+            {
+                // If the user got the answer right:
+                timer1.Stop();
+                MessageBox.Show("You got all the answers right!", "Congratulations!");
+                startButton.Enabled = true;
+            }
             if (timeLeft > 0)
             {
                 // Update timer:
-                timeLeft = timeLeft - 1;
+                timeLeft--;
                 timeLabel.Text = timeLeft + " seconds";
             }
             else
@@ -86,6 +90,16 @@ namespace CIT365_MathQuiz
             timeLabel.Text = "30 seconds";
             // Start timer:
             timer1.Start();
+        }
+
+        // Compares the answers the user input to the actual answers
+        // returns true or false depending on the comparison
+        private bool CheckTheAnswer()
+        {
+            if (addend1 + addend2 == sum.Value)
+                return true;
+            else
+                return false;
         }
     }
 }

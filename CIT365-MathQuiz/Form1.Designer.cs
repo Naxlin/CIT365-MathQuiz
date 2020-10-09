@@ -63,7 +63,7 @@
             // 
             this.timeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLabel.Location = new System.Drawing.Point(212, 9);
+            this.timeLabel.Location = new System.Drawing.Point(217, 9);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(200, 30);
             this.timeLabel.TabIndex = 0;
@@ -72,7 +72,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(71, 8);
+            this.label1.Location = new System.Drawing.Point(66, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 31);
             this.label1.TabIndex = 1;
@@ -107,7 +107,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "=";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -126,6 +125,7 @@
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 41);
             this.sum.TabIndex = 2;
+            this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // difference
             // 
@@ -134,6 +134,7 @@
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 41);
             this.difference.TabIndex = 3;
+            this.difference.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label2
             // 
@@ -182,6 +183,7 @@
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 41);
             this.product.TabIndex = 4;
+            this.product.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label8
             // 
@@ -230,7 +232,7 @@
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 41);
             this.quotient.TabIndex = 5;
-            this.quotient.ValueChanged += new System.EventHandler(this.quotient_ValueChanged);
+            this.quotient.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label12
             // 
@@ -321,7 +323,6 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "CIT 365 - Math Quiz";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).EndInit();
