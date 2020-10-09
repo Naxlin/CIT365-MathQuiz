@@ -125,6 +125,7 @@
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 41);
             this.sum.TabIndex = 2;
+            this.sum.ValueChanged += new System.EventHandler(this.Answer_Correct_Alert);
             this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // difference
@@ -134,6 +135,7 @@
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 41);
             this.difference.TabIndex = 3;
+            this.difference.ValueChanged += new System.EventHandler(this.Answer_Correct_Alert);
             this.difference.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label2
@@ -183,6 +185,7 @@
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 41);
             this.product.TabIndex = 4;
+            this.product.ValueChanged += new System.EventHandler(this.Answer_Correct_Alert);
             this.product.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label8
@@ -232,6 +235,7 @@
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 41);
             this.quotient.TabIndex = 5;
+            this.quotient.ValueChanged += new System.EventHandler(this.Answer_Correct_Alert);
             this.quotient.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label12

@@ -43,6 +43,37 @@ namespace CIT365_MathQuiz
             }
         }
 
+        private void Answer_Correct_Alert(object sender, EventArgs e)
+        {
+            NumericUpDown answerBox = sender as NumericUpDown;
+
+            if (answerBox != null)
+            {
+                Console.WriteLine(answerBox.Name);
+                switch (answerBox.Name)
+                {
+                    case "sum":
+                        if (addend1 + addend2 == sum.Value)
+                            System.Media.SystemSounds.Beep.Play();
+                        break;
+                    case "difference":
+                        if (minuend - subtrahend == difference.Value)
+                            System.Media.SystemSounds.Beep.Play();
+                        break;
+                    case "product":
+                        if (multiplicand * multiplier == product.Value)
+                            System.Media.SystemSounds.Beep.Play();
+                        break;
+                    case "quotient":
+                        if (dividend / divisor == quotient.Value)
+                            System.Media.SystemSounds.Beep.Play();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
         private void startButton_Click(object sender, EventArgs e)
         {
             StartTheQuiz();
@@ -63,6 +94,8 @@ namespace CIT365_MathQuiz
                 // Update timer:
                 timeLeft--;
                 timeLabel.Text = timeLeft + " seconds";
+                if (timeLeft < 6)
+                    timeLabel.BackColor = Color.Red;
             }
             else
             {
@@ -128,6 +161,7 @@ namespace CIT365_MathQuiz
             timeLeft = 30;
             // Setting time label:
             timeLabel.Text = "30 seconds";
+            timeLabel.BackColor = Color.Transparent;
             // Start timer:
             timer1.Start();
         }
