@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -78,6 +82,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon1.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
